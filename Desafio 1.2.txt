@@ -20,13 +20,17 @@ struct ContentView: View {
         //coloco as variaveis aqui
         var body: some View {
             VStack {
-                Image("caminhao").resizable()
+                Image("caminhao").resizable()               .frame(width: 400, height: 200).offset(x:0, y:-50)
+                    //.padding(-10)
+               
+                
                 Image("caminhao").resizable().scaledToFit().clipShape(Circle()).overlay(Text("HackaTrunk").font(.title).foregroundColor(.blue).offset(x: 0, y: -50))
-                Image("fundoPreto")
+                
+                Image("fundoPreto").resizable()               .frame(width: 250, height: 150).offset(x:0, y:50)
                 
                     HStack{
-                        Text("Maker").foregroundColor(.yellow).offset(x: 0, y: -150)
-                        Text("Space").foregroundColor(.red).offset(x: 0, y: -150)
+                        Text("Maker").foregroundColor(.yellow).offset(x: 0, y: -80)
+                        Text("Space").foregroundColor(.red).offset(x: 0, y: -80)
                         //modifiers são esses .tanana depois dos textos e imagens
                     }} //.ignoresSafeArea(.all)
             .padding()
