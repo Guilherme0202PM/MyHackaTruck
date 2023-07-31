@@ -25,7 +25,7 @@ struct ContentView: View {
                         Label("", systemImage: "magnifyingglass")
                     }
                 
-                Text("House")
+                PhotoView()
                     .tabItem{
                         Label("Photo", systemImage: "photo.fill")
                     }

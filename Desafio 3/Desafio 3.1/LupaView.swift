@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LupaView: View {
     var body: some View {
-        Rectangle().foregroundColor(.blue)
+        
+        ZStack{
+            Rectangle().foregroundColor(.blue).scaledToFit().frame(width: 300, height: 300)
+            Text("Hello HackaTruck").font(.system(size: 30))
+        }
     }
 }
 
