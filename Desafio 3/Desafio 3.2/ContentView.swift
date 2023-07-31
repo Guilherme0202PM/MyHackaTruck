@@ -11,40 +11,25 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
         
-        VStack {
-            
-            TabView{
-                HomeView() // novo arquivo //command n -> SwiftUI View
-                    .badge(2) // faz aparecer as notificacoes
-                    .tabItem{
-                        Label("House", systemImage: "house")//nome e o nome do icone
-                    }
+            VStack {
+                NavigationLink(destination: Pag1View()){
+                    Text("Modo 1")
+                    
+                }
                 
-                LupaView()
-                    .tabItem{
-                        Label("", systemImage: "magnifyingglass")
-                    }
+                NavigationLink(destination: Pag2View()){
+                    Text("Modo 2")
+
+                }
                 
-                Text("House")
-                    .tabItem{
-                        Label("Photo", systemImage: "photo.fill")
-                    }
-                
-                Text("House")
-                    .tabItem{
-                        Label("Mensage", systemImage: "")
-                    }
-                
-                Text("House")
-                    .tabItem{
-                        Label("Profile", systemImage: "person.circle.fill")
-                    }
+                NavigationLink(destination: Pag3View()){
+                    Text("Modo 3")
+
+                }
                 
             }
-            }
             
-        }
-        .padding()
+        }.padding()
     }
 }
 
@@ -53,3 +38,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
