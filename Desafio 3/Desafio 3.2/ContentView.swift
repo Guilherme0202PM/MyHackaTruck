@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    @State public var showingSheet = false
     var body: some View {
         NavigationStack{
         
             VStack {
+                
                 NavigationLink(destination: Pag1View()){
                     Text("Modo 1")
                     
@@ -22,10 +26,17 @@ struct ContentView: View {
 
                 }
                 
-                NavigationLink(destination: Pag3View()){
+                Button("Modo 3") {
+                            showingSheet.toggle()
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            Pag3View()
+                        }
+                
+                /*NavigationLink(destination: Pag3View()){
                     Text("Modo 3")
 
-                }
+                }*/
                 
             }
             
