@@ -1,0 +1,74 @@
+﻿//
+//  ContentView.swift
+//  Desafio 2
+//
+//  Created by Student10 on 28/07/23.
+//
+
+
+import SwiftUI
+
+
+struct ContentView: View {
+        @State var altura: String = ""
+        @State var peso: String = ""
+        @State var IMC1: Float = 0.0
+        @State var pessoa: String = ""
+        //@State var color = (Color : color "")
+    
+        var body: some View {
+            VStack {
+                Text("Calculadora de IMC").foregroundColor(.black).offset(x:0,y:-50).font(.system(size: 40))
+                
+                TextField("Entre um numero", text: $altura).keyboardType(.decimalPad).textContentType(.oneTimeCode).padding().background(Color.gray.opacity(0.2))
+                    .cornerRadius(10).offset(x:0,y:-50)
+                
+                
+                TextField("Entre um numero", text: $peso).keyboardType(.decimalPad).textContentType(.oneTimeCode).padding().background(Color.gray.opacity(0.2))
+                    .cornerRadius(10).offset(x:0,y:-50)
+                
+                Button("Calcular"){
+                    var peso1 = Float(peso) ?? 0.0
+                    var altura1 = Float(altura) ?? 00
+                    IMC1 = peso1 / (altura1 * altura1)
+                    
+                    if IMC1 < 18.5 {
+                        pessoa = "Baixo Peso"
+                    } else if (IMC1 >= 18.5 && IMC1 <= 24.99){
+                        pessoa = "Normal"
+                    } else if (IMC1 >= 25 && IMC1 <= 29.99){
+                        pessoa = "Sobrepeso"
+                    } else if (IMC1 >= 30){
+                        pessoa = "Obesidade"
+
+
+                    }
+                    
+                    
+                    
+                }//.padding().border(Color.blue, width: 50).foregroundColor(.white)
+                Text(pessoa)
+                
+                Image("tabela").resizable().frame(width: 400, height: 200).offset(x:0,y:100)
+                
+                
+
+
+                /*//func calculaIMC (){
+                    var peso1 = Float(peso ) ?? 0.0
+                    var altura1 = Float(altura ) ?? 0.0
+                    var IMC1 = peso1 / altura1*altura1
+                //}*/
+            }
+            .padding() //            .background(Color.pink)
+
+
+        }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+}
