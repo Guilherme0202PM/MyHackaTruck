@@ -14,11 +14,11 @@ struct ContentView: View {
                      capa:"https://i1.sndcdn.com/artworks-000402447507-zyjqsu-t500x500.jpg"),
                 Song(id: 3, name: "Chandelier", artist: "Sia", capa:"https://i.ytimg.com/vi/2vjPBrBU-TM/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCrBoC7iIkACGu4zzJmcRrVdVS04Q"),
                 Song(id: 4, name: "A Sky Full of Sky", artist: "Coldplay", capa:"https://vivacoldplay.com/wp-content/uploads/2015/11/CTHS4RZWUAAsMIV.jpg"),
-                Song(id: 5, name: "Viva la Vida", artist: "Coldplay",capa:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjnJ0wKGRvg2VV3n27H8wwJ2xZPTNQwevVA&usqp=CAU"),
-                Song(id: 6, name: "Yellow", artist: "Coldplay",
+                Song(id: 5, name: "Viva a vida", artist: "Coldplay",capa:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjnJ0wKGRvg2VV3n27H8wwJ2xZPTNQwevVA&usqp=CAU"),
+                Song(id: 6, name: "Amarelo", artist: "Coldplay",
                      capa:"https://i1.sndcdn.com/artworks-000402447507-zyjqsu-t500x500.jpg"),
-                Song(id: 7, name: "Chandelier", artist: "Sia", capa:"https://i.ytimg.com/vi/2vjPBrBU-TM/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCrBoC7iIkACGu4zzJmcRrVdVS04Q"),
-                Song(id: 8, name: "A Sky Full of Sky", artist: "Coldplay", capa:"https://vivacoldplay.com/wp-content/uploads/2015/11/CTHS4RZWUAAsMIV.jpg"),
+                Song(id: 7, name: "Candelabro", artist: "Sia", capa:"https://i.ytimg.com/vi/2vjPBrBU-TM/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCrBoC7iIkACGu4zzJmcRrVdVS04Q"),
+                Song(id: 8, name: "Um Ceu Cheio de Estrelas", artist: "Coldplay", capa:"https://vivacoldplay.com/wp-content/uploads/2015/11/CTHS4RZWUAAsMIV.jpg"),
                 
     ]
     
