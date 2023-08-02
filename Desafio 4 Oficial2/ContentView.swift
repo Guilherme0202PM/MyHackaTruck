@@ -73,8 +73,13 @@ struct ContentView: View {
                                             
                                         }
                                         Spacer()
+                                        //Image(systemImage: "ellipsis")
+
                                     }
                                 }
+                                Image(systemName:"ellipsis").foregroundColor(.white).offset(x:150,y: -10)
+                                
+
                             }
                             
                             HStack{
