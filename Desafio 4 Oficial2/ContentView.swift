@@ -24,6 +24,19 @@ struct ContentView: View {
     
     let sugestao = [Sugestao(id: 1, albumCover: "Viva la Vida", albumName:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjnJ0wKGRvg2VV3n27H8wwJ2xZPTNQwevVA&usqp=CAU"),Sugestao(id: 2, albumCover: "A Sky Full of Sky", albumName:"https://vivacoldplay.com/wp-content/uploads/2015/11/CTHS4RZWUAAsMIV.jpg"),Sugestao(id: 3, albumCover: "Chandelier", albumName:"https://i.ytimg.com/vi/2vjPBrBU-TM/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCrBoC7iIkACGu4zzJmcRrVdVS04Q"),Sugestao(id: 4, albumCover: "Yellow", albumName:"https://i1.sndcdn.com/artworks-000402447507-zyjqsu-t500x500.jpg"),]
     
+    @State private var searchText = "" //pesquisa
+    
+    var filterSongs: [Song]{
+        if searchText.isEmpty{
+            return song
+        }else{
+            return song.filter{
+                $0.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    
     var body: some View {
         NavigationStack{
             ZStack{ // ativa o fundo
@@ -34,6 +47,11 @@ struct ContentView: View {
                 
                 VStack { // capa inicial
                     ScrollView{ //deixar a tela toda ScrollView
+                        
+                        Text("Procurando por \(searchText)") //titulo de baixo da barra
+                        //.navigationTitle("Searchable Example") // seria um tipo de titulo
+                            .searchable(text: $searchText) // recebe o que eu digito
+                        
                         
                         Image("caminhao").resizable()
                             .frame(width: 250, height: 230)
@@ -50,7 +68,7 @@ struct ContentView: View {
                         }
                         
                         VStack{ // nossa lista de musicas
-                            ForEach(song) { song in //ele percorre meu vetor
+                            ForEach(filterSongs) { song in //ele percorre meu vetor
                                 
                                 HStack{
                                     AsyncImage(url: URL(string: song.capa)) {
