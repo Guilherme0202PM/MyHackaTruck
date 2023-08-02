@@ -53,8 +53,7 @@ struct ContentView: View {
                             ForEach(song) { song in //ele percorre meu vetor
                                 
                                 HStack{
-                                    AsyncImage(url:
-                                                URL(string: song.capa)) {
+                                    AsyncImage(url: URL(string: song.capa)) {
                                         song in
                                         song.resizable().frame(width: 60, height: 60)
                                         
@@ -62,7 +61,7 @@ struct ContentView: View {
                                     } placeholder: { //caso a image falhe fica "carregando"
                                         ProgressView()
                                     }
-                                    NavigationLink(destination: Text(song.name)){ //nome vira link
+                                    NavigationLink(destination: SongPage (song: song)){ //nome vira link
                                         VStack{
                                             Text(song.name).foregroundColor(.white)
                                                 .font(.system(size: 20))
@@ -74,12 +73,12 @@ struct ContentView: View {
                                         }
                                         Spacer()
                                         //Image(systemImage: "ellipsis")
-
+                                        
                                     }
                                 }
                                 Image(systemName:"ellipsis").foregroundColor(.white).offset(x:150,y: -10)
                                 
-
+                                
                             }
                             
                             HStack{
@@ -106,14 +105,14 @@ struct ContentView: View {
                                             ProgressView()
                                         }
                                         /*NavigationLink(destination: Text(sugestao.albumName)){ //nome vira link
-                                            HStack{
-                                                Text(sugestao.albumCover).foregroundColor(.white)
-                                                    .font(.system(size: 20))
-                                                
-                                                
-                                            //}
-                                            
-                                        }*/
+                                         HStack{
+                                         Text(sugestao.albumCover).foregroundColor(.white)
+                                         .font(.system(size: 20))
+                                         
+                                         
+                                         //}
+                                         
+                                         }*/
                                     }
                                 }
                                 
@@ -134,6 +133,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-
