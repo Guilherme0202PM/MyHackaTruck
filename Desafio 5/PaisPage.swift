@@ -10,6 +10,7 @@ import SwiftUI
 struct PaisPage: View {
     var body: some View {
         Text("Hello, World!")
+        //Text(location.name).foregroundColor(.black)
         /*
         VStack{
             VStack{
