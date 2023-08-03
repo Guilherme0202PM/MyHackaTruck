@@ -36,31 +36,54 @@ struct ContentView: View {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
             
-            HStack{
-                Button("Modo 3") {
-                                   showingSheet.toggle()
-                               }
-                               .sheet(isPresented: $showingSheet) {
-                                   PaisPage()
-                               } 
-                
-           /* HStack {
-             ForEach(location) { location in
-                 Button(action: {
+            VStack{
+                Text("Mapa Mundo").foregroundColor(.black).font(.system(size: 40))
+                Text("Mapa Mundo").foregroundColor(.black).font(.system(size: 20))
+                Spacer()
+                HStack{
+                    Button("Uberlandia") {
+                        showingSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        PaisPage()
+                    }
+                    Button("Japao") {
+                        showingSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        PaisPage()
+                    }
+                    Button("Franca") {
+                        showingSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        PaisPage()
+                    }
+                    Button("Australia") {
+                        showingSheet.toggle()
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        PaisPage()
+                    }
+                    
+                    /* HStack {
+                     ForEach(location) { location in
+                     Button(action: {
                      selectedCoordinate = location.coordinate
-                 }) {
+                     }) {
                      AsyncImage(url: URL(string: location.flag)) { image in
-                         image.resizable().frame(width: 100, height: 50)
+                     image.resizable().frame(width: 100, height: 50)
                      } placeholder: {
-                         ProgressView()
+                     ProgressView()
                      }
-                 }.buttonStyle(.plain)
-                 
-                 }*/
-             
-
-                
-            } // fim HStack Botoes
+                     }.buttonStyle(.plain)
+                     
+                     }*/
+                    
+                    
+                    
+                } // fim HStack Botoes
+            } // VStack
         } // fim ZStack Mapa
     }
 }
