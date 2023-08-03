@@ -16,17 +16,6 @@ struct ContentView: View {
                     Location(name: "Australia", coordinate: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478),flag:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/250px-Flag_of_Australia_%28converted%29.svg.png", description: "Tóquio (em japonês: 東京; romaniz.: Tōkyō, pronunciado: [to̞ːkʲo̞ː] (Sobre este somescutar?·info), literalmente capital do Leste, oficialmente Metrópole de Tóquio (東京都 Tōkyō-to?), é a capital do Japão e uma das 47 prefeituras do país. Situa-se em Honshu, a maior ilha do arquipélago. Em 2015, Tóquio possuía mais de 13,4 milhões de habitantes, cerca de 11% da população do país, e a Região Metropolitana de Tóquio possui mais de 37 milhões de habitantes, o que torna a aglomeração de Tóquio, independentemente de como se define, como a área urbana mais populosa do mundo. Um de seus monumentos mais famosos é a Torre de Tóquio."),]
     
     
-    //@State private var selectedCoordinate: CLLocationCoordinate2D
-    
-    /*@State private var region: MKCoordinateRegion {
-        if let coordinate = selectedCoordinate {
-            return MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-        } else {
-            return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-        }
-    }*/
-
-    
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
     @State public var showingSheet = false
@@ -41,12 +30,15 @@ struct ContentView: View {
                 Text("Mapa Mundo").foregroundColor(.black).font(.system(size: 20))
                 Spacer()
                 HStack{
-                    Button("Uberlandia") {
-                        showingSheet.toggle()
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                        PaisPage()
-                    }
+                    ForEach(location){ local in
+                        Button(local.name) {
+                            region = MKCoordinateRegion(center: local.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                            
+                            showingSheet.toggle()
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            PaisPage()
+                        }}/*
                     Button("Japao") {
                         showingSheet.toggle()
                     }
@@ -64,7 +56,7 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $showingSheet) {
                         PaisPage()
-                    }
+                    }*/
                     
                     /* HStack {
                      ForEach(location) { location in
@@ -93,35 +85,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-
-/*
- var body: some View {
-         ZStack {
-             Map(coordinateRegion: $region)
-                 .ignoresSafeArea()
-
-             VStack {
-                 Spacer()
-                 List(location) { loc in
-                     Button(action: {
-                         // Abra a página correspondente à bandeira
-                         showingSheet.toggle()
-                     }) {
-                         HStack {
-                             Image(systemName: "flag") // Use a imagem da bandeira aqui
-                                 .foregroundColor(.blue) // Defina a cor da bandeira
-                             Text(loc.name)
-                         }
-                     }
-                 }
-                 .frame(height: 100)
-                 .background(Color.white) // Defina a cor de fundo da lista
-             }
-         }
-     }
- }
-
- 
- */
