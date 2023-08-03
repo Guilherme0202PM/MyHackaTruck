@@ -15,6 +15,18 @@ struct ContentView: View {
                     Location(name: "Japao", coordinate: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478),flag:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/250px-Flag_of_Japan.svg.png", description: "Tóquio (em japonês: 東京; romaniz.: Tōkyō, pronunciado: [to̞ːkʲo̞ː] (Sobre este somescutar?·info), literalmente capital do Leste, oficialmente Metrópole de Tóquio (東京都 Tōkyō-to?), é a capital do Japão e uma das 47 prefeituras do país. Situa-se em Honshu, a maior ilha do arquipélago. Em 2015, Tóquio possuía mais de 13,4 milhões de habitantes, cerca de 11% da população do país, e a Região Metropolitana de Tóquio possui mais de 37 milhões de habitantes, o que torna a aglomeração de Tóquio, independentemente de como se define, como a área urbana mais populosa do mundo. Um de seus monumentos mais famosos é a Torre de Tóquio."),Location(name: "França", coordinate: CLLocationCoordinate2D(latitude: 46.2192649, longitude: 2.0517),flag:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%29.svg/250px-Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%29.svg.png", description: "Pais Legal"),
                     Location(name: "Australia", coordinate: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478),flag:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/250px-Flag_of_Australia_%28converted%29.svg.png", description: "Tóquio (em japonês: 東京; romaniz.: Tōkyō, pronunciado: [to̞ːkʲo̞ː] (Sobre este somescutar?·info), literalmente capital do Leste, oficialmente Metrópole de Tóquio (東京都 Tōkyō-to?), é a capital do Japão e uma das 47 prefeituras do país. Situa-se em Honshu, a maior ilha do arquipélago. Em 2015, Tóquio possuía mais de 13,4 milhões de habitantes, cerca de 11% da população do país, e a Região Metropolitana de Tóquio possui mais de 37 milhões de habitantes, o que torna a aglomeração de Tóquio, independentemente de como se define, como a área urbana mais populosa do mundo. Um de seus monumentos mais famosos é a Torre de Tóquio."),]
     
+    
+    //@State private var selectedCoordinate: CLLocationCoordinate2D
+    
+    /*@State private var region: MKCoordinateRegion {
+        if let coordinate = selectedCoordinate {
+            return MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        } else {
+            return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        }
+    }*/
+
+    
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
     @State public var showingSheet = false
@@ -24,23 +36,30 @@ struct ContentView: View {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
             
-           /* HStack{
+            HStack{
                 Button("Modo 3") {
                                    showingSheet.toggle()
                                }
                                .sheet(isPresented: $showingSheet) {
                                    PaisPage()
-                               } */
+                               } 
                 
-            HStack {
-                ForEach(location) { location in
-                    AsyncImage(url: URL(string: location.flag)) { image in
-                        image.resizable().frame(width: 100, height: 50)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                }
+           /* HStack {
+             ForEach(location) { location in
+                 Button(action: {
+                     selectedCoordinate = location.coordinate
+                 }) {
+                     AsyncImage(url: URL(string: location.flag)) { image in
+                         image.resizable().frame(width: 100, height: 50)
+                     } placeholder: {
+                         ProgressView()
+                     }
+                 }.buttonStyle(.plain)
+                 
+                 }*/
+             
 
+                
             } // fim HStack Botoes
         } // fim ZStack Mapa
     }
