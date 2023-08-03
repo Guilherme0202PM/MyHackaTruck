@@ -7,40 +7,36 @@
 
 import SwiftUI
 
+
+
 struct PaisPage: View {
+    //@Binding var local
     var body: some View {
         Text("Hello, World!")
-        //Text(location.name).foregroundColor(.black)
-        /*
-        VStack{
-            VStack{
+        
+        /*HStack{
+            ForEach(location){ local in
+                Text(local.name).foregroundColor(.white)
                 
-                AsyncImage(url: URL(string: location.flag)) {
-                    song in
-                    song.resizable().frame(width: 200, height: 200)
-                } placeholder: { //caso a image falhe fica "carregando"
-                    ProgressView()
-                }
+            }*/
+            
+            /* HStack {
+             ForEach(location) { location in
+             Button(action: {
+             selectedCoordinate = location.coordinate
+             }) {
+             AsyncImage(url: URL(string: location.flag)) { image in
+             image.resizable().frame(width: 100, height: 50)
+             } placeholder: {
+             ProgressView()
+             }
+             }.buttonStyle(.plain)
+             
+             }*/
             
             
-        }
-        /*
-        VStack{
             
-            AsyncImage(url: URL(string: song.capa)) {
-                song in
-                song.resizable().frame(width: 200, height: 200)
-            } placeholder: { //caso a image falhe fica "carregando"
-                ProgressView()
-            }
-            
-            VStack{
-                Text(song.name).foregroundColor(.white)
-                    .font(.system(size: 40))
-                
-                Text(song.artist).foregroundColor(.white).font(.system(size: 25))
-            }
-        } */ */
+        //}
     } // Var Bory
 }
     

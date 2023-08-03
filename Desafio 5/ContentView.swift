@@ -16,7 +16,7 @@ struct ContentView: View {
                     Location(name: "Australia", coordinate: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478),flag:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/250px-Flag_of_Australia_%28converted%29.svg.png", description: "Tóquio (em japonês: 東京; romaniz.: Tōkyō, pronunciado: [to̞ːkʲo̞ː] (Sobre este somescutar?·info), literalmente capital do Leste, oficialmente Metrópole de Tóquio (東京都 Tōkyō-to?), é a capital do Japão e uma das 47 prefeituras do país. Situa-se em Honshu, a maior ilha do arquipélago. Em 2015, Tóquio possuía mais de 13,4 milhões de habitantes, cerca de 11% da população do país, e a Região Metropolitana de Tóquio possui mais de 37 milhões de habitantes, o que torna a aglomeração de Tóquio, independentemente de como se define, como a área urbana mais populosa do mundo. Um de seus monumentos mais famosos é a Torre de Tóquio."),]
     
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.652832, longitude: 139.839478), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -18.9113, longitude: -48.2622), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
     @State public var showingSheet = false
     
@@ -34,29 +34,16 @@ struct ContentView: View {
                         Button(local.name) {
                             region = MKCoordinateRegion(center: local.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
                             
+                            //aux = local
+                            
                             showingSheet.toggle()
                         }
                         .sheet(isPresented: $showingSheet) {
+                            //PaisPage(local: $aux)
                             PaisPage()
-                        }}/*
-                    Button("Japao") {
-                        showingSheet.toggle()
+                        }
+                        
                     }
-                    .sheet(isPresented: $showingSheet) {
-                        PaisPage()
-                    }
-                    Button("Franca") {
-                        showingSheet.toggle()
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                        PaisPage()
-                    }
-                    Button("Australia") {
-                        showingSheet.toggle()
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                        PaisPage()
-                    }*/
                     
                     /* HStack {
                      ForEach(location) { location in
