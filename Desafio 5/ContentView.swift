@@ -20,16 +20,20 @@ struct ContentView: View {
     
     @State public var showingSheet = false
     
+    @State private var region_aux: String = ""
+    
     var body: some View {
         ZStack{
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
             
             VStack{
-                Text("Mapa Mundo").foregroundColor(.black).font(.system(size: 40))
-                Text("Mapa Mundo").foregroundColor(.black).font(.system(size: 20))
+                Text("World Map").foregroundColor(.black).font(.system(size: 40))
+                Text("\(region_aux)")
                 Spacer()
+                
                 HStack{
+                    
                     ForEach(location){ local in
                         Button(local.name) {
                             region = MKCoordinateRegion(center: local.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
@@ -40,7 +44,18 @@ struct ContentView: View {
                         }
                         .sheet(isPresented: $showingSheet) {
                             //PaisPage(local: $aux)
-                            PaisPage()
+                            //PaisPage()
+                            
+                            Text("\(local.name)").foregroundColor(.black).font(.system(size: 40))
+                            AsyncImage(url: URL(string: local.flag)) { image in
+                            image.resizable().frame(width: 350, height: 200)
+                            } placeholder: {
+                            ProgressView()
+                            }
+                            
+                            Text("\(local.description)").foregroundColor(.black).font(.system(size: 20))
+                            
+                            
                         }
                         
                     }
