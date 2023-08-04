@@ -1,0 +1,46 @@
+﻿//
+//  ContentView.swift
+//  TesteAula1
+//
+//  Created by Student10 on 27/07/23.
+//
+
+
+// a hieraraquia do codigo depende da ordem que eu crio
+//Stacks agrupa as views vstack vertical / hstack horizontal
+// spacer é um espaço que eu coloco
+//ztack seria uma sobreposicão
+//zIndex
+
+
+import SwiftUI
+
+
+struct ContentView: View {
+        //coloco as variaveis aqui
+        var body: some View {
+            VStack {
+                Image("caminhao").resizable()               .frame(width: 400, height: 200).offset(x:0, y:-50)
+                    //.padding(-10)
+               
+                
+                Image("caminhao").resizable().scaledToFit().clipShape(Circle()).overlay(Text("HackaTrunk").font(.title).foregroundColor(.blue).offset(x: 0, y: -50))
+                
+                Image("fundoPreto").resizable()               .frame(width: 250, height: 150).offset(x:0, y:50)
+                
+                    HStack{
+                        Text("Maker").foregroundColor(.yellow).offset(x: 0, y: -80)
+                        Text("Space").foregroundColor(.red).offset(x: 0, y: -80)
+                        //modifiers são esses .tanana depois dos textos e imagens
+                    }} //.ignoresSafeArea(.all)
+            .padding()
+        }
+}
+
+
+// se eu tirar o que esta abaixo o celular some
+struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
+}
