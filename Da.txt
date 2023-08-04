@@ -1,0 +1,5 @@
+Desafio 1 = Primeiros Layouts
+Desafio 2 = Calculadora IMC
+Desafio 3 = Paginas
+Desafio 4 = Spotify
+Desafio 5 = Map
