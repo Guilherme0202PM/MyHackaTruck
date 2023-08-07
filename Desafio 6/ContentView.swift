@@ -30,7 +30,8 @@ struct ContentView: View {
                 ScrollView(){
                     ForEach(viewModel.jogos, id: \.id) { jogo in
                         Button(action: {
-                            // Implementar ação para levar para a TabView com as informações detalhadas
+                             // Implementar ação para levar para a TabView com as informações detalhadas
+                            
                         }) {
                             VStack(spacing: 8) {
                                 AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
@@ -52,6 +53,8 @@ struct ContentView: View {
                         
                     }
                 }
+                
+                
                 
                         } // Fim Vstack
             .padding(.horizontal)

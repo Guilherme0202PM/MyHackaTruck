@@ -4,7 +4,7 @@
 //
 //  Created by Student10 on 07/08/23.
 //
-/*
+
 import SwiftUI
 
 struct GameDetailView: View {
@@ -16,9 +16,12 @@ struct GameDetailView: View {
                 AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(8)
+                } placeholder: {
+                    Text("ERRADO")//put your placeholder here
                 }
+                        //.aspectRatio(contentMode: .fit)
+                        //.cornerRadius(8)
+
                 Text(jogo.title ?? "No Title")
                     .font(.title)
                     .fontWeight(.bold)
@@ -45,7 +48,9 @@ struct GameDetailView: View {
 
 struct GameDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetailView()
+        GameDetailView(jogo: games(id: 1136, title: "Overwatch 2", thumbnail:"https://www.mmobomb.com/g/1136/thumbnail.jpg", short_description: "Big changes come to the Overwatch formula in this sequel...and so does PvE content, eventually.", game_url: "https://www.mmobomb.com/open/overwatch-2", genre: "Shooter", platform: "PC (Windows)", publisher: "Activision Blizzard King", developer: "Blizzard Entertainment", release_date: "2022-10-04", profile_url: "https://www.mmobomb.com/overwatch-2"))
+
+
     }
 }
-*/
+
