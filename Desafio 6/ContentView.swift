@@ -9,30 +9,59 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ViewModel()
     var body: some View {
+       
+        //@State var lista = [games]
+        
         
         ZStack{
             
-            AsyncImage(url: URL(string: "https://img.freepik.com/vetores-premium/pixel-art-retro-wave-scifi-background-com-nascer-ou-por-do-sol-pixel-art-80s-pixel-art-jogo-de-8-bits_148553-568.jpg?w=2000")) { image in
-                image.resizable().frame(width: 500, height: 900)
+            AsyncImage(url: URL(string: "https://img.freepik.com/vetores-premium/pixel-art-retro-wave-scifi-background-com-nascer-ou-por-do-sol-pixel-art-80s-pixel-art-jogo-de-8-bits_148553-568.jpg?w=2000")) { fundo in
+                fundo.resizable().frame(width: 500, height: 900)
             }
-            placeholder: {
-                ProgressView()
-            }
+        placeholder: {
+            ProgressView()
+        }
             
             
             
             VStack {
-                //Image(systemName: "globe").imageScale(.large).foregroundColor(.accentColor)
-                //Text("Hello, world!")
+                ForEach(viewModel.jogos, id: \.id) { jogo in
+                    Button(action: {
+                        // Implementar ação para levar para a TabView com as informações detalhadas
+                    }) {
+                        VStack(spacing: 8) {
+                            AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
+                                image.resizable().aspectRatio(contentMode: .fill).frame(width: 150, height: 150).cornerRadius(8)
+                            }
+                        placeholder: {
+                            ProgressView()
+                        }
+                            
+                            Text(jogo.title ?? "No Title")
+                                .font(.headline)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.primary)
+                        }
+                        
+                    }
+                    
+                }
+                
+                        } // Fim Vstack
+            .padding(.horizontal)
+                    }
+                    .onAppear {
+                        viewModel.fetch()
+                    }
+                }
             }
-            .padding()
-        }
-    }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+            
+            struct ContentView_Previews: PreviewProvider {
+                static var previews: some View {
+                    ContentView()
+                }
+            }
