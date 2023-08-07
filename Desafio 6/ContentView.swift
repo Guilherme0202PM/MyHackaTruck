@@ -27,27 +27,30 @@ struct ContentView: View {
             
             
             VStack {
-                ForEach(viewModel.jogos, id: \.id) { jogo in
-                    Button(action: {
-                        // Implementar ação para levar para a TabView com as informações detalhadas
-                    }) {
-                        VStack(spacing: 8) {
-                            AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
-                                image.resizable().aspectRatio(contentMode: .fill).frame(width: 150, height: 150).cornerRadius(8)
+                ScrollView(){
+                    ForEach(viewModel.jogos, id: \.id) { jogo in
+                        Button(action: {
+                            // Implementar ação para levar para a TabView com as informações detalhadas
+                        }) {
+                            VStack(spacing: 8) {
+                                AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
+                                    image.resizable().aspectRatio(contentMode: .fill).frame(width: 250, height: 250).cornerRadius(8)
+                                }
+                            placeholder: {
+                                ProgressView()
                             }
-                        placeholder: {
-                            ProgressView()
-                        }
+                                
+                                Text(jogo.title ?? "No Title")
+                                    //.font(.headline)
+                                    //.lineLimit(2)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 35))
+                            }
                             
-                            Text(jogo.title ?? "No Title")
-                                .font(.headline)
-                                .lineLimit(2)
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.primary)
                         }
                         
                     }
-                    
                 }
                 
                         } // Fim Vstack
