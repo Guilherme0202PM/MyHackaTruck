@@ -4,7 +4,7 @@
 //
 //  Created by Student10 on 04/08/23.
 //
-// https://www.mmobomb.com/api
+// https://www.mmobomb.com/api site
 
 import SwiftUI
 
