@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ViewModel()
+    @State public var showingSheet = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            //Text(jogo.title ?? "No Title")
-            //Text(estacionamento.vaga)
-            //Text(ViewModel.estacionamento)
-            
+            ScrollView(){
+                ForEach(viewModel.estacionamento, id: \.self) { est in
+                    
+                    Text(est.nomeEstacionamento ?? "Nome desconhcido")
+                } // Fim Vstack
+                .padding(.horizontal)
+            }
+
         }
-        .padding()
+        .onAppear {
+        viewModel.fetch()
+                            }
     }
 }
 

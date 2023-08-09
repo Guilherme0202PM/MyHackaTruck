@@ -7,9 +7,6 @@
 
 import Foundation
 
-//@StateObject var viewModel = ViewModel()
-
-
 class ViewModel : ObservableObject{
     
     @Published var estacionamento : [Estacionamento] = []

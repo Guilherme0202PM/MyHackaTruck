@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Estacionamento : Codable{
-    let id: Int?
+struct Estacionamento : Decodable, Hashable{
+  //  let id: Int?
     let nomeEstacionamento: String?
     let endereco: String?
     let vaga: Int?
@@ -16,7 +16,7 @@ struct Estacionamento : Codable{
     let carro : [Carro]
 }
 
-struct Carro : Codable{
+struct Carro : Decodable, Hashable{
     let modelo : String?
     let ano : Int?
     let cor : String?

@@ -68,7 +68,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 810,
+        "x": 530,
         "y": 440,
         "wires": []
     },
@@ -105,41 +105,6 @@
         "wires": [
             [
                 "3fa525ca3b411763",
-                "f4595e30df13bc8b"
-            ]
-        ]
-    },
-    {
-        "id": "f4595e30df13bc8b",
-        "type": "json",
-        "z": "0ccd96ed8f8ec1ee",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 530,
-        "y": 440,
-        "wires": [
-            [
-                "7df7d14570467117"
-            ]
-        ]
-    },
-    {
-        "id": "7df7d14570467117",
-        "type": "template",
-        "z": "0ccd96ed8f8ec1ee",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "This is the payload: {{payload}} !",
-        "output": "str",
-        "x": 680,
-        "y": 440,
-        "wires": [
-            [
                 "5adc264f8d9ea274"
             ]
         ]
