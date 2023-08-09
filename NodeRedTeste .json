@@ -1,0 +1,365 @@
+[
+    {
+        "id": "0e1eb1715d2475b4",
+        "type": "http in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "url": "/guilhermeperes",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 60,
+        "wires": [
+            [
+                "f0054e2774954e13"
+            ]
+        ]
+    },
+    {
+        "id": "f0054e2774954e13",
+        "type": "cloudantplus out",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "cloudant": "92c9cc39242c9963",
+        "database": "guilhermeperes",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "8a6e8f352089173f",
+                "097ed06cdb1b76f5"
+            ]
+        ]
+    },
+    {
+        "id": "8a6e8f352089173f",
+        "type": "http response",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "097ed06cdb1b76f5",
+        "type": "debug",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "83bbdc53820b2f9f",
+        "type": "http in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "url": "/guilhermeperesPost",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "1e981b7dd0a34369"
+            ]
+        ]
+    },
+    {
+        "id": "1e981b7dd0a34369",
+        "type": "cloudantplus out",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "cloudant": "92c9cc39242c9963",
+        "database": "guilhermeperes",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "dd3341b4e53c1cbc",
+                "9a09bf9be2764e28"
+            ]
+        ]
+    },
+    {
+        "id": "dd3341b4e53c1cbc",
+        "type": "http response",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9a09bf9be2764e28",
+        "type": "debug",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e8177c6f9d410d05",
+        "type": "http in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "url": "/guilhermeperesRead",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "a1155e8b02fd703e"
+            ]
+        ]
+    },
+    {
+        "id": "5adc264f8d9ea274",
+        "type": "http response",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3fa525ca3b411763",
+        "type": "debug",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a1155e8b02fd703e",
+        "type": "cloudantplus in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "cloudant": "92c9cc39242c9963",
+        "database": "guilhermeperes",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 400,
+        "y": 520,
+        "wires": [
+            [
+                "3fa525ca3b411763",
+                "f4595e30df13bc8b"
+            ]
+        ]
+    },
+    {
+        "id": "f4595e30df13bc8b",
+        "type": "json",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 520,
+        "wires": [
+            [
+                "7df7d14570467117"
+            ]
+        ]
+    },
+    {
+        "id": "7df7d14570467117",
+        "type": "template",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 740,
+        "y": 520,
+        "wires": [
+            [
+                "5adc264f8d9ea274"
+            ]
+        ]
+    },
+    {
+        "id": "47cdc5a7cf6fe95b",
+        "type": "http in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "url": "/guilhermeperesUpdate",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "bf5bdbe4d0da3f01"
+            ]
+        ]
+    },
+    {
+        "id": "4dbe0be83ab80eb1",
+        "type": "http response",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "33ab48bcae2b4618",
+        "type": "debug",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "e691db337b669588",
+        "type": "http in",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "url": "/guilhermeperesDelete",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 940,
+        "wires": [
+            [
+                "e86ee6b7fe1609a9"
+            ]
+        ]
+    },
+    {
+        "id": "07fa6c17a627a936",
+        "type": "http response",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e8692d9e7c8de583",
+        "type": "debug",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "bf5bdbe4d0da3f01",
+        "type": "cloudantplus out",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "cloudant": "92c9cc39242c9963",
+        "database": "guilhermeperes",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 420,
+        "y": 720,
+        "wires": [
+            [
+                "4dbe0be83ab80eb1",
+                "33ab48bcae2b4618"
+            ]
+        ]
+    },
+    {
+        "id": "e86ee6b7fe1609a9",
+        "type": "cloudantplus out",
+        "z": "0ccd96ed8f8ec1ee",
+        "name": "",
+        "cloudant": "92c9cc39242c9963",
+        "database": "guilhermeperes",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 440,
+        "y": 940,
+        "wires": [
+            [
+                "e8692d9e7c8de583",
+                "07fa6c17a627a936"
+            ]
+        ]
+    },
+    {
+        "id": "92c9cc39242c9963",
+        "type": "cloudantplus",
+        "host": "https://apikey-v2-10jxylvs36u46ldr6za4p2sero86jnboc26asrbk2q0g:0f284505f2f612099b7186f933976498@8472bb0f-4f34-4675-bd25-3cf7a52343d1-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    }
+]
