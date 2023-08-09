@@ -14,6 +14,10 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            //Text(jogo.title ?? "No Title")
+            //Text(estacionamento.vaga)
+            //Text(ViewModel.estacionamento)
+            
         }
         .padding()
     }

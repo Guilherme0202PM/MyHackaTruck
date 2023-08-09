@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct estacionamento : Codable{
+struct Estacionamento : Codable{
     let id: Int?
     let nomeEstacionamento: String?
     let endereco: String?
     let vaga: Int?
     let game_url: String?
-    let carro : [carro]
+    let carro : [Carro]
 }
 
-struct carro : Codable{
+struct Carro : Codable{
     let modelo : String?
     let ano : Int?
     let cor : String?
