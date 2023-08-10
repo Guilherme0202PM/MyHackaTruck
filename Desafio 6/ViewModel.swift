@@ -9,6 +9,8 @@ import Foundation
 
 class ViewModel : ObservableObject{
     
+    @Published var selectedJogo: games?
+    
     @Published var jogos : [games] = []
     
     func fetch(){
