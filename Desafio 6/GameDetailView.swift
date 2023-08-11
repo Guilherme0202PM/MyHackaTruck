@@ -12,34 +12,39 @@ struct GameDetailView: View {
     
     var body: some View {
         TabView {
-            VStack {
-                AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
-                    image
-                        .resizable()
-                } placeholder: {
-                    Text("ERRADO")//put your placeholder here
-                }
-                        //.aspectRatio(contentMode: .fit)
-                        //.cornerRadius(8)
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [.black, .blue,.blue,.gray]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
 
-                Text(jogo.title ?? "No Title")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
+
+                VStack {
+                    AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
+                        image
+                            .resizable().frame(width: 300, height: 300).cornerRadius(8)
+                        
+                    } placeholder: {
+                        Text("ERRADO")//put your placeholder here
+                    }
+                    //.aspectRatio(contentMode: .fit)
+                    //.cornerRadius(8)
+                    
+                    Text(jogo.title ?? "No Title")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
+                    
+                    Text(jogo.short_description ?? "No description available")
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal)
+                    
+                    // Add more information as needed
+                }
+                .tabItem {
+                    Label("Details", systemImage: "info.circle")
+                }
                 
-                Text(jogo.short_description ?? "No description available")
-                    .font(.body)
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
-                
-                // Add more information as needed
+                // Add more tabs with different information views if needed
             }
-            .tabItem {
-                Label("Details", systemImage: "info.circle")
-            }
-            
-            // Add more tabs with different information views if needed
-            
         }
         .navigationBarTitle(jogo.title ?? "Game Details")
     }

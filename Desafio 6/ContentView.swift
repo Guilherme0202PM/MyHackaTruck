@@ -23,12 +23,16 @@ struct ContentView: View {
         
         ZStack{
             
-            AsyncImage(url: URL(string: "https://img.freepik.com/vetores-premium/pixel-art-retro-wave-scifi-background-com-nascer-ou-por-do-sol-pixel-art-80s-pixel-art-jogo-de-8-bits_148553-568.jpg?w=2000")) { fundo in
-                fundo.resizable().frame(width: 500, height: 900)
-            }
-        placeholder: {
-            ProgressView()
-        }
+            LinearGradient(gradient: Gradient(colors: [.black,.blue, .purple]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+
+            
+//            AsyncImage(url: URL(string: "https://static.vecteezy.com/ti/fotos-gratis/p1/6504716-abstract-background-gradient-blue-purple-red-you-can-use-this-background-for-your-content-like-as-video-streaming-promotion-gaming-advertise-presentation-etc-foto.jpg")) { fundo in
+//                fundo.resizable().frame(width: 500, height: 900)
+//            }
+//
+//        placeholder: {
+//            ProgressView()
+//        }
             
             
             
@@ -42,7 +46,7 @@ struct ContentView: View {
                         }) {
                             VStack(spacing: 8) {
                                 AsyncImage(url: URL(string: jogo.thumbnail ?? "")) { image in
-                                    image.resizable().aspectRatio(contentMode: .fill).frame(width: 250, height: 250).cornerRadius(8)
+                                    image.resizable().aspectRatio(contentMode: .fill).frame(width: 200, height: 200).cornerRadius(8)
                                         
                                       
                                     
@@ -61,7 +65,7 @@ struct ContentView: View {
                                     //.font(.headline)
                                     //.lineLimit(2)
                                     .multilineTextAlignment(.center)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.white)
                                     .font(.system(size: 35))
                                 
                                // sheet(isPresented: $showingSheet) {
